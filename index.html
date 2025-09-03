@@ -1,1 +1,1156 @@
+  <!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şiraz İran Restoranı | Otantik İran Mutfağı</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B0000;
+            --secondary: #DAAD65;
+            --accent: #2F4F4F;
+            --light: #F9F5EB;
+            --dark: #1A1A1A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(139, 0, 0, 0.95);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(139, 0, 0, 0.98);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-btns {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            border: 2px solid var(--secondary);
+            box-shadow: 0 4px 14px rgba(218, 173, 101, 0.4);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(218, 173, 101, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        /* Menu Section */
+        .menu {
+            padding: 100px 0;
+            background: linear-gradient(to bottom right, #F9F5EB, #E4DCCF);
+        }
+        
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .menu-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .menu-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .menu-item:hover .menu-img img {
+            transform: scale(1.1);
+        }
+        
+        .menu-content {
+            padding: 25px;
+        }
+        
+        .menu-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .menu-content p {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .menu-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(139, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(to bottom right, #F9F5EB, #E4DCCF);
+        }
+        
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin: 20px;
+        }
+        
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Reservation Section */
+        .reservation {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .reservation-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .reservation-form {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .reservation-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .reservation-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding: 130px 0 80px;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .menu-item, .reservation-form {
+                padding: 20px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI1IDVDMzEuMDg1OCA1IDM2LjEzMjkgOC4wMzkwMyAzOS4wMzc2IDEyLjk2MDlDMzcuMjU1OSAxMi4zMzc2IDM1LjI3MjcgMTIgMzMuMTg3OCAxMkMyNi41MDA2IDEyIDIxLjA2MjUgMTcuNDM4MSAyMS4wNjI1IDI0LjEyNTJDMjEuMDYyNSAyNS4zMDgxIDIxLjI1MjYgMjYuNDQ1OSAyMS41OTc2IDI3LjUxMkMxNy4wOTk0IDI2LjI4MDggMTMuNzUgMjIuMjg1NiAxMy43NSAxNy41QzEzLjc1IDExLjE0ODQgMTkuMTQ4NCA1LjYyNSAyNS41IDUuNjI1SDI1VjVaIiBmaWxsPSIjREFBRDY1Ii8+CjxwYXRoIGQ9Ik0zOS4wMzc2IDEyLjk2MDlDNDEuOTQyMyA4LjAzOTAzIDQ2Ljk4OTQgNSA1My4wNzUyIDVINDcuNjI1QzQxLjI0MDYgNSAzNi4wMzc2IDEwLjIwMzEgMzYuMDM3NiAxNi41ODc1QzM2LjAzNzYgMTguNjcyNCAzNi4zNzUyIDIwLjY1NTYgMzcuMDA4NSAyMi40MzczQzQxLjAxMTcgMTkuNTMyNiA0NC4wNTA4IDE0LjQ4NTUgNDQuMDUwOCA4LjM5OTcyQzQ0LjA1MDggOC4wNjU2IDQ0LjA0MTYgNy43MzMzIDQ0LjAyMzIgNy40MDM2M0M0Mi42Mjk0IDkuODUzMjYgNDAuOTUwOCAxMi4wNzYxIDM5LjAzNzYgMTQuMDI0MlYxMi45NjA5WiIgZmlsbD0iI0RBRDY1Ii8+CjxwYXRoIGQ9Ik0yNSA0NUMyNSA0NSAzNi44MTI1IDM2LjgxMjUgMzcuNSA0MC42MjVDMzguMTg3NSA0NC40Mzc1IDM0LjM3NSA0NSAzNC4zNzUgNDVIMjVWIjogZmlsbD0iIzhCMDAwMCIvPgo8L3N2Zz4K" alt="Şiraz Restoran Logo">
+                <h1>Şiraz İran Restoranı</h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="#menu">Menü</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#reservation">Rezervasyon</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-btns">
+                <a href="#reservation" class="btn btn-primary">Rezervasyon Yap</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>İran'ın Otantik Lezzetleri</h2>
+            <p>Binlerce yıllık Pers mutfağının en seçkin örneklerini lüks bir ortamda sunuyoruz. Geleneksel tariflerimiz ve modern sunumumuzla unutulmaz bir deneyim sizi bekliyor.</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn btn-primary">Menüyü Gör</a>
+                <a href="#reservation" class="btn btn-outline">Rezervasyon Yap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hakkımızda</h2>
+                <p>Binlerce yıllık Pers mutfağının en seçkin örneklerini lüks bir ortamda sunuyoruz</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Restoran İç Görünümü">
+                </div>
+                
+                <div class="about-text">
+                    <h3>Pers İmparatorluğu'ndan Günümüze Lezzet Yolculuğu</h3>
+                    <p>Şiraz Restoranı olarak, 1995'ten beri İstanbul'da İran mutfağının en otantik ve leziz örneklerini sunmaktan gurur duyuyoruz. Aşçıbaşımız Tahir Efendi'nin dedesinden kalma tariflerle hazırladığı yemekler, sizleri Pers İmparatorluğu'nun ihtişamlı mutfağına doğru bir yolculuğa çıkaracak.</p>
+                    <p>Restoranımızda sadece en taze malzemeleri kullanıyor, yemeklerimizi geleneksel yöntemlerle ve büyük bir özenle hazırlıyoruz. Zerdeçal, safran, nar ekşisi ve sumak gibi İran mutfağının vazgeçilmez lezzetleri, her bir yemeğimize ayrı bir karakter katıyor.</p>
+                    <a href="#menu" class="btn btn-outline">Menüyü Keşfet</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Öne Çıkan Lezzetler</h2>
+                <p>Binlerce yıllık tariflerle hazırlanan birbirinden lezzetli yemekler</p>
+            </div>
+            
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">Hepsi</button>
+                <button class="filter-btn" data-filter="kebab">Kebaplar</button>
+                <button class="filter-btn" data-filter="stew">Yahniler</button>
+                <button class="filter-btn" data-filter="rice">Pilavlar</button>
+                <button class="filter-btn" data-filter="appetizer">Mezeler</button>
+            </div>
+            
+            <div class="menu-grid">
+                <div class="menu-item" data-category="kebab">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80" alt="Chelow Kebab">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Chelow Kebab</h3>
+                        <p>İran'ın ulusal yemeği. Pirinç pilavı üzerinde ızgara kuzu eti, zerdeçal ve safranla hazırlanır.</p>
+                        <div class="menu-price">
+                            <span class="price">₺320</span>
+                            <button class="btn btn-primary">Sipariş Ver</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="stew">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80" alt="Ghormeh Sabzi">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Ghormeh Sabzi</h3>
+                        <p>Otlar, kuru limon ve kuzu etiyle hazırlanan geleneksel bir İran yahnisi.</p>
+                        <div class="menu-price">
+                            <span class="price">₺280</span>
+                            <button class="btn btn-primary">Sipariş Ver</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="rice">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Tahchin">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Tahchin</h3>
+                        <p>Yoğurt, safran ve tavukla hazırlanan lezzetli bir İran pilavı. Çıtır dış katmanıyla ünlüdür.</p>
+                        <div class="menu-price">
+                            <span class="price">₺260</span>
+                            <button class="btn btn-primary">Sipariş Ver</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="appetizer">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mast-o-Khiar">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Mast-o-Khiar</h3>
+                        <p>Yoğurt, salatalık, nane ve kuru üzümle hazırlanan ferahlatıcı bir meze.</p>
+                        <div class="menu-price">
+                            <span class="price">₺95</span>
+                            <button class="btn btn-primary">Sipariş Ver</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="kebab">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Joojeh Kebab">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Joojeh Kebab</h3>
+                        <p>Zerdeçal, safran ve limon suyuyla marine edilmiş tavuk şiş. İran'ın sevilen kebap çeşitlerindendir.</p>
+                        <div class="menu-price">
+                            <span class="price">₺240</span>
+                            <button class="btn btn-primary">Sipariş Ver</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="stew">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Fesenjan">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Fesenjan</h3>
+                        <p>Nar pekmezi, ceviz ve tavukla hazırlanan ekşi-tatlı bir yahni. Özel günlerin vazgeçilmez yemeği.</p>
+                        <div class="menu-price">
+                            <span class="price">₺300</span>
+                            <button class="btn btn-primary">Sipariş Ver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri</h2>
+                <p>Restoranımızdan ve lezzetlerimizden kareler</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Restoran İçi">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Yemek Sunumu">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1619894991209-32b8fb1d5ce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mutfak">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Pizza">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="İran Yemekleri">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1576854284880-3200b1c6d614?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80" alt="Özel Yemek">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Müşteri Yorumları</h2>
+                <p>Misafirlerimizin deneyimleri</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Müşteri">
+                    <p class="testimonial-text">"İran mutfağını merak ediyordum ve Şiraz Restoranı bu konuda harika bir deneyim oldu. Chelow Kebab'ın tadı hala damağımda. Personel son derece kibardı ve atmosfer mükemmeldi."</p>
+                    <p class="testimonial-author">Mehmet Yılmaz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section class="reservation" id="reservation">
+        <div class="container">
+            <div class="section-title">
+                <h2>Rezervasyon</h2>
+                <p>Masalar sınırlı sayıdadır, şimdiden rezervasyon yaptırın</p>
+            </div>
+            
+            <div class="reservation-container">
+                <div class="reservation-form">
+                    <h3>Rezervasyon Formu</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Adınız Soyadınız</label>
+                            <input type="text" id="name" class="form-control" placeholder="Adınız ve soyadınız" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-posta Adresiniz</label>
+                            <input type="email" id="email" class="form-control" placeholder="E-posta adresiniz" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefon Numaranız</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Telefon numaranız" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">Rezervasyon Tarihi</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="time">Saat</label>
+                            <input type="time" id="time" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guests">Misafir Sayısı</label>
+                            <input type="number" id="guests" class="form-control" min="1" max="20" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Özel İstekler</label>
+                            <textarea id="message" class="form-control" placeholder="Özel istekleriniz..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Rezervasyon Yap</button>
+                    </form>
+                </div>
+                
+                <div class="reservation-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Adres</h3>
+                            <p>Nişantaşı Mah. Abdi İpekçi Cad. No:123<br>Şişli/İstanbul</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Telefon</h3>
+                            <p>+90 (212) 345 67 89</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>E-posta</h3>
+                            <p>info@sirazrestaurant.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Çalışma Saatleri</h3>
+                            <p>Pazartesi-Cumartesi: 11:00 - 23:00<br>Pazar: 12:00 - 22:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Şiraz İran Restoranı</h3>
+                    <p>Binlerce yıllık Pers mutfağının en otantik ve leziz örneklerini lüks bir ortamda sunmaktan gurur duyuyoruz.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Hızlı Erişim</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Ana Sayfa</a></li>
+                        <li><a href="#about">Hakkımızda</a></li>
+                        <li><a href="#menu">Menü</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                        <li><a href="#reservation">Rezervasyon</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>İletişim</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Nişantaşı Mah. Abdi İpekçi Cad. No:123, Şişli/İstanbul</li>
+                        <li><i class="fas fa-phone"></i> +90 (212) 345 67 89</li>
+                        <li><i class="fas fa-envelope"></i> info@sirazrestaurant.com</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Bülten</h3>
+                    <p>Özel etkinliklerimiz ve indirimlerden haberdar olmak için bültenimize abone olun.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="E-posta adresiniz" required>
+                        </div>
                         <button type="submit" class="btn btn-primary">Abone Ol</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Şiraz İran Restoranı - Tüm Hakları Saklıdır</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Menu filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Get filter value
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Show/hide menu items based on filter
+                menuItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Form submission
+        const reservationForm = document.querySelector('.reservation-form form');
+        if (reservationForm) {
+            reservationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Rezervasyon talebiniz alınmıştır. En kısa sürede sizinle iletişime geçeceğiz.');
+                this.reset();
+            });
+        }
+
+        // Gallery lightbox effect (simplified)
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                alert('Galeri görüntüleme özelliği aktif edilecek!');
+            });
+        });
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.menu-item, .gallery-item, .testimonial');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
